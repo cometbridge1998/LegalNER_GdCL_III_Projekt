@@ -1,0 +1,30 @@
+--------------
+different number of labels at the 1328th object!
+labels: [['OTHER_PERSON', 3, 22], ['CASE_NUMBER', 28, 41], ['CASE_NUMBER', 61, 75], ['COURT', 83, 140], ['ORG', 148, 166], ['CASE_NUMBER', 166, 167], ['CASE_NUMBER', 167, 176]]
+labels_with_text: ['Jeevan Bheemmanagar', 'Cr..No.179/05', 'CC No.22109/06', '10th Addl. Chief Metropolitan Magistrate Court, Bangalore', 'Koramangala P.S.Cr', '.', 'No.430/05']
+all_labelled_tokens: ['Jeevan Bheemmanagar', 'Cr..No.179/05', 'CC No.22109/06', '10th Addl. Chief Metropolitan Magistrate Court , Bangalore.', 'Koramangala', 'P.S.Cr.No.430/05'] 
+--------------
+--------------
+different number of labels at the 2236th object!
+labels: [['OTHER_PERSON', 13, 34], ['GPE', 64, 70], ['GPE', 71, 78], ['ORG', 93, 129], ['DATE', 202, 210]]
+labels_with_text: ['Sureshchand Isarchand', 'Bavana', 'Dholpur', 'Regional Transport Authority, Jaipur', '17-12-66']
+all_labelled_tokens: ['Sureshchand Isarchand', 'Bavana-Dholpur', 'Regional Transport Authority , Jaipur', '17-12-66'] 
+--------------
+--------------
+different number of labels at the 5321th object!
+labels: [['GPE', 41, 47], ['GPE', 48, 52], ['GPE', 66, 81], ['ORG', 122, 151]]
+labels_with_text: ['Bombay', 'Pune', 'Nalgaon Village', 'Wadagaon-Moval Police Station']
+all_labelled_tokens: ['Bombay-Pune', 'Nalgaon Village', 'Wadagaon-Moval Police Station'] 
+--------------
+--------------
+different number of labels at the 5452th object!
+labels: [['OTHER_PERSON', 39, 51], ['OTHER_PERSON', 60, 72], ['PROVISION', 209, 215], ['PROVISION', 226, 238], ['STATUTE', 242, 245], ['PROVISION', 248, 254], ['STATUTE', 258, 261], ['PROVISION', 272, 284], ['STATUTE', 288, 291], ['PROVISION', 298, 304], ['STATUTE', 308, 311], ['PROVISION', 322, 334], ['STATUTE', 338, 341]]
+labels_with_text: ['R.M. Tuffail', 'M.C. Dhingra', 's. 364', 'Section 120B', 'IPC', 's. 302', 'IPC', 'Section 120B', 'IPC', 's. 201', 'IPC', 'Section 120B', 'IPC']
+all_labelled_tokens: ['R.M. Tuffail', 'M.C. Dhingra', 'U/s. 364', 'Section 120B', 'IPC/U/s. 302', 'IPC', 'Section 120B', 'IPC', 'U/s. 201', 'IPC', 'Section 120B', 'IPC'] 
+--------------
+--------------
+different number of labels at the 7417th object!
+labels: [['OTHER_PERSON', 114, 121], ['DATE', 204, 212], ['GPE', 217, 226], ['GPE', 227, 233]]
+labels_with_text: ['Sampath', '2.2.1988', 'Bangalore', 'Madras']
+all_labelled_tokens: ['Sampath', '2.2.1988', 'Bangalore-Madras'] 
+--------------

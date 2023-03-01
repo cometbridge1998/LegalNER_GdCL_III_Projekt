@@ -1,0 +1,6 @@
+--------------
+different number of labels at the 824th object!
+labels: [['GPE', 138, 144], ['GPE', 145, 149], ['OTHER_PERSON', 239, 248], ['OTHER_PERSON', 260, 276]]
+labels_with_text: ['Bombay', 'Agra', 'Amaraveni', 'Venkateswara Rao']
+all_labelled_tokens: ['Bombay-Agra', 'Amaraveni', 'Venkateswara Rao'] 
+--------------
