@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/bin"
+CMD="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/cmd"
+LIB="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/lib"
+
+OPTIONS="-token -lemma -sgml"
+
+TOKENIZER=${CMD}/utf8-tokenize.perl
+ABBR_LIST=${LIB}/belarusian-abbreviations
+TAGGER=${BIN}/tree-tagger
+PARFILE=${LIB}/belarusian.par
+
+# do tokenization
+$TOKENIZER -a $ABBR_LIST $* |
+$TAGGER $OPTIONS $PARFILE

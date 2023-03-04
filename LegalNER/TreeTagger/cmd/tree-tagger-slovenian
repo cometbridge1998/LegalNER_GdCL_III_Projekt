@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Set these paths appropriately
+
+BIN="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/bin"
+CMD="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/cmd"
+LIB="/home/luxinyao/Documents/LegalNER_GdCL_III_Projekt/LegalNER/TreeTagger/lib"
+
+OPTIONS="-token -lemma -sgml"
+
+TAGGER=${BIN}/tree-tagger
+TOKENIZER=${CMD}/utf8-tokenize.perl
+PARFILE=${LIB}/slovenian.par
+
+$TOKENIZER $* |
+$TAGGER $OPTIONS $PARFILE
