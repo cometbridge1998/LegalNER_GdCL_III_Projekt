@@ -1,4 +1,4 @@
-# LegalNER_GdCL_III_Projekt
+# LegalNER_GdCL_III_Project
 Coursework of the seminar Grundlagen der Computerlinguitik III at the University of Erlangen <br>
 Wintersemester 2022-2023 <br>
 Under the guidance of female professor <b>Stefanie Evert</b>, Lehrstuhl für Korpus- und Computerlinguistik<br>
