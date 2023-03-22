@@ -47,4 +47,12 @@ The Classify Report reflects the accuracy of (simply) classification, not consid
 Recognition Report shows how many entities are not only in accurate length detected but also correctly classified. <br>
 
 3) <b>get_confusion_matrix</b> <br>
-returns confusion_matrix in three categories: juridical_person, formats, natural_person
+returns confusion_matrix in three categories: juridical_person, formats, natural_person<br><br>
+
+
+## 5. Model_Selection.ipynb
+This notebook compares the results of support vector mashine and the sklearn_crfsuite model, both after parameter finetuning.<br>
+The sklearn_crfsuite model has reached a obviously better result as the svm.<br>
+<b>SVM:</b>Weighed average f1 score of strict recognition <b>67%</b> (level of <b>entity</b>) <br>
+<b>crfsuite:</b>Weighed average f1 score of strict recognition <b>75%</b> (level of <b>entity</b>) <br>
+Visualization uses the visualizer tools of SpaCy, to mark the entities from text in colors.<br>
