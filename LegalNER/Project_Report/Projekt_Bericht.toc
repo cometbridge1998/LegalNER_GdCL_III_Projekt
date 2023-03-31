@@ -6,14 +6,11 @@
 \contentsline {subsection}{\numberline {2.3}Erkennen und Einordnen: doppelte Aufgaben der NER}{4}{}%
 \contentsline {section}{\numberline {3}Vorbereitung zum maschinellen Lernen}{4}{}%
 \contentsline {subsection}{\numberline {3.1}Tokenisierung}{4}{}%
-\contentsline {subsection}{\numberline {3.2}Part-of-Speech Tagging}{5}{}%
+\contentsline {subsection}{\numberline {3.2}Part-of-Speech-Tagging}{5}{}%
 \contentsline {subsection}{\numberline {3.3}Feature Matrix}{5}{}%
 \contentsline {subsection}{\numberline {3.4}Model Selection}{6}{}%
 \contentsline {section}{\numberline {4}Evaluation und Fehleranalyse}{6}{}%
 \contentsline {subsection}{\numberline {4.1}Zwei Methoden zur Evaluation}{6}{}%
 \contentsline {subsection}{\numberline {4.2}Zwei Methoden zur Evaluation}{7}{}%
 \contentsline {subsection}{\numberline {4.3}Confusion Matrix}{7}{}%
-\contentsline {subsection}{\numberline {4.4}Fehleranalyse}{9}{}%
-\contentsline {subsubsection}{\numberline {4.4.1}versteckter Fehler: Personen in den Präzedenzfällen}{9}{}%
-\contentsline {subsubsection}{\numberline {4.4.2}natural\_person: eine unausgewogene Klasse}{9}{}%
-\contentsline {section}{\numberline {5}Schlussbemerkung}{9}{}%
+\contentsline {subsection}{\numberline {4.4}Fehleranalyse mit dem Beispiel der Präzedenzfälle}{9}{}%

@@ -15,6 +15,7 @@
 \usepackage{selnolig}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{booktabs}
 
 \begin{document}
 	\thispagestyle{empty}
@@ -69,7 +70,7 @@
 		3. Fachsemester
 		
 		\medskip\noindent
-		Abgabe: \today\\
+		Abgabe: 31.03.2023
 	}
 	
 	\clearpage
@@ -78,6 +79,7 @@
 	\thispagestyle{empty}
 	\tableofcontents
 	\listoffigures
+	\listoftables
 	
 	\clearpage
 	
@@ -85,10 +87,9 @@
 	\noindent
 	Als Seminarprojekt für die Lehrveranstaltung Grundlagen der Computerlinguistik III an der FAU Erlangen-Nürnberg wird das \enquote{Sub-task B: Legal Named Entities Extraction} vom \enquote{SemEval-2023, Task 6: LegalEval: Understanding Legal Texts} ausgewählt.\footnote{Link zum Task: https://sites.google.com/view/legaleval/home\#h.fbpoqsn0hjeh}
 	
-	Die Datensätze dieser Aufgabe sind englischsprachige juristische Urteile in Indien. Im Projekt werden nur traditionelle maschinelle Lernverfahren verwendet. Trotzdem hat das Projekt auch ein befriedigendes Ergebnis (75\% strenger f1-score) mit mindestens 47\% Recall bei allen Hauptkategorien (Support >= 50) im Developing Datensatz bekommen. 
+	Die Datensätze dieser Aufgabe sind englischsprachige juristische Urteile in Indien. Im Projekt werden nur traditionelle maschinelle Lernverfahren verwendet. Trotzdem hat das Projekt auch ein befriedigendes Ergebnis (75\% strenger f1-Score) mit mindestens 47\% Recall bei allen Hauptkategorien (Support >= 50) im Developing Datensatz bekommen. 
 	
-	\index Der gesamte Code dieses Projekts in verschiedenen Modulen mit der Pipeline und ihrer Visualisierung kann im GitHub Repository \enquote{ LegalNER\_GdCL\_III\_Projekt
-	} gefunden werden.\footnote{Link zum Repository: https://github.com/cometbridge1998/LegalNER\_GdCL\_III\_Projekt}
+	\index Der gesamte Code dieses Projekts in verschiedenen Modulen mit der Pipeline und ihrer Visualisierung kann im GitHub-Repository \enquote{LegalNER\_GdCL\_III\_Projekt} gefunden werden.\footnote{Link zum Repository: https://github.com/cometbridge1998/LegalNER\_GdCL\_III\_Projekt}
 	
 	\section{LegalNER: Projektbeschreibung}
 	\subsection{Aufgaben der allgemeinen Named Entity Recognition}
@@ -99,26 +100,33 @@
 	
 	\subsection{Spezielle Aufgaben der LegalNER}
 	\noindent
-	NER in den juristischen Unterlagen (LegalNER) ist eine dieser Aufgaben, die ein spezifisches Programm auffordern.  \enquote{Named Entities in juristischen Texten sind etwas anders und feiner als normale verwendete Named Entities ... }\footnote{[Named Entity Recognition in Indian court judgments]https://aclanthology.org/2022.nllp-1.15) (Kalamkar et al., NLLP 2022): \enquote{Named Entities in legal texts are slightly different and more fine-grained than commonly used named entities like Person, Organization, Location etc.}} Viele Kategorien in der LegalNER wie \enquote{JUDGE} (Richter), \enquote{PETITIONER} (Kläger), \enquote{RESPONDENT} (Angeklagter) werden in meisten allgemeinen NER Programmen nicht voneinander unterschieden oder sind vernachlässigt wie \enquote{STATUTE} (Bestimmung), \enquote{PRECEDENT} (Präzedenzfall). Außerdem werden komplexerer Satzbau und eine große Menge von Fachbegriffen in den juristischen Unterlagen häufig verwendet. 
+	NER in den juristischen Unterlagen (LegalNER) ist eine dieser Aufgaben, die ein spezifisches Programm auffordern.  \enquote{Named Entities in juristischen Texten sind etwas anders und feiner als normale verwendete Named Entities ...}\footnote{[Named Entity Recognition in Indian court judgments](https://aclanthology.org/2022.nllp-1.15) (Kalamkar et al., NLLP 2022): \enquote{Named Entities in legal texts are slightly different and more fine-grained than commonly used named entities like Person, Organization, Location etc.}} Viele Kategorien in der LegalNER wie \enquote{JUDGE} (Richter), \enquote{PETITIONER} (Kläger), \enquote{RESPONDENT} (Angeklagter) werden in meisten allgemeinen NER Programmen nicht voneinander unterschieden oder werden vernachlässigt wie \enquote{STATUTE} (Bestimmung), \enquote{PRECEDENT} (Präzedenzfall). Außerdem werden komplexerer Satzbau und eine große Menge von Fachbegriffen in den juristischen Unterlagen häufig verwendet. 
 	
 	\indent
-	Juristische Urteile bestehen normalerweise aus zwei Teilen, \enquote{preamble} (Präambel) und \enquote{judgement} (Urteil). \enquote{Die Präambel eines Urteils enthält formatierte Metadaten wie Namen der Parteien, des Richters, der Rechtsanwälte, das Datum, das Gericht usw. Der folgende Text wird \enquote{Urteil} genannt. }\footnote{[Named Entity Recognition in Indian court judgments](https://aclanthology.org/2022.nllp-1.15) (Kalamkar et al., NLLP 2022): \enquote{The preamble of a judgment contains formatted metadata like names of parties, judges, lawyers, date, court etc. The text following the preamble till the end of the judgment is called "judgment".}} Im Datensatz vom shared-task werden Präambeln und Urteile getrennt gespeichert. Die Verteilung der Named Entities in der Präambel ist meistens viel dichter als im darauf folgenden Urteil. Deswegen sind die Datensätze für Urteile durch Auswahl der \enquote{dicht besetzten} Sätze \enquote{intensiviert}. In diesem Projekt werden nur die Datensätzen für Urteile verwendet. 
+	Juristische Urteile bestehen normalerweise aus zwei Teilen, \enquote{preamble} (Präambel) und \enquote{judgement} (Urteil). \enquote{Die Präambel eines Urteils enthält formatierte Metadaten wie Namen der Parteien, des Richters, der Rechtsanwälte, das Datum, das Gericht usw. Der folgende Text wird \enquote{Urteil} genannt.}\footnote{[Named Entity Recognition in Indian court judgments](https://aclanthology.org/2022.nllp-1.15) (Kalamkar et al., NLLP 2022): \enquote{The preamble of a judgment contains formatted metadata like names of parties, judges, lawyers, date, court etc. The text following the preamble till the end of the judgment is called "judgment".}} Im Datensatz vom Shared-Task werden Präambeln und Urteile getrennt gespeichert. Die Verteilung der Named Entities in der Präambel ist meistens viel dichter als im darauf folgenden Urteil. Deswegen sind die Datensätze für Urteile durch Auswahl der \enquote{dicht besetzten} Sätze \enquote{intensiviert}. In diesem Projekt werden nur die Datensätzen für Urteile verwendet. 
 	
 	\subsection{Erkennen und Einordnen: doppelte Aufgaben der NER}
 	\noindent
-	Die Schwierigkeit einer NER Aufgabe liegt darin, dass sie nicht nur die richtige Klassifikation, sondern auch die genaue Erkennung der Entities (nicht länger, nicht kürzer) benötigt. Allerdings ist es für ein traditionelles Lernverfahren notwendig, Texte in Token zu splitten (Tokenisierung) und demnächst in eine Matrix, die als Eingabe für das maschinelle Lernen dient, umzuwandeln. Eine Entity entspricht normalerweise mehrere Tokens. Für einige besonders lange Arten von Entities wie \enquote{PRECEDENT} und \enquote{STATUTE}, sind Entities mit mehr als 10 Tokens  nicht selten. 
+	Die Schwierigkeit einer NER-Aufgabe liegt darin, dass sie nicht nur die richtige Klassifikation, sondern auch die genaue Erkennung der Entities (nicht länger, nicht kürzer) benötigt. Allerdings ist es für ein traditionelles Lernverfahren notwendig, Texte in Token zu splitten (Tokenisierung) und demnächst in eine Matrix, die als Eingabe für das maschinelle Lernen dient, umzuwandeln. Eine Entity entspricht normalerweise mehrere Tokens. Für einige besonders lange Arten von Entities wie \enquote{PRECEDENT} und \enquote{STATUTE}, sind Entities mit mehr als 10 Tokens  nicht selten. 
 	
 	\indent
-	Wegen der unterschiedlichen Längen der Entities entsteht die \enquote{BIO} Tagging Norm für NER Aufgaben. Denjenigen Tokens, die sich am Anfang von einer Entity befinden, wird ein \enquote{B-} (\enquote{Beginning}) Label gegeben. \enquote{I-} Labels (\enquote{Insider}) markieren alle Tokens nach dem ersten Token in einer Entity. \enquote{O} (\enquote{Outsider}) Labels entsprechen allen Tokens, die sich in keiner Entity befinden. Z. B.:
+	Wegen der unterschiedlichen Längen der Entities entsteht die \enquote{BIO} Tagging-Norm für NER-Aufgaben. Denjenigen Tokens, die sich am Anfang von einer Entity befinden, wird ein \enquote{B-} (\enquote{Beginning}) Label gegeben. \enquote{I-} Labels (\enquote{Insider}) markieren alle Tokens nach dem ersten Token in einer Entity. \enquote{O} (\enquote{Outsider}) Labels entsprechen allen Tokens, die sich in keiner Entity befinden. ( s. Tabelle 1: \enquote{BIO} Tagging-Norm ) Im Datensatz gibt es keine Überschneidung von den Labels. Jedes Token oder Zeichen befindet sich in maximal einer Entity.
 	
-	\indent
-	\enquote{... of Hongkong Bank ...}
-	
-	\indent
-	[ \enquote{o}, \enquote{B-ORG}, \enquote{I-ORG}]
-	
-	\indent
-	Im Datensatz gibt es keine Überschneidung von den Labels. Jedes Token oder Zeichen befindet sich in maximal einer Entity.
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{@{}| c | c | @{}}
+				\toprule
+				Token & Label   \\ \midrule
+				\hline
+				... & ...  \\ \midrule
+				of & o  \\ \midrule
+				Hongkong & B-ORG \\   \midrule
+				Bank & I-ORG \\   \midrule
+				... & ... \\  \bottomrule
+			\end{tabular}
+			\caption{ \enquote{BIO}-Tagging-Norm}
+		\end{center}
+	\end{table}	
 	
 	\section{Vorbereitung zum maschinellen Lernen}
 	
@@ -132,13 +140,13 @@
 	 \indent
 	\{ \enquote{value}: \{ \enquote{start}: 90, \enquote{end}: 103 \}, \enquote{text}: \enquote{Hongkong Bank}, \enquote{labels}: [\enquote{ORG}] \} 
 	
-	Der erste Schritt dieses Projekts ist, alle Texte mit ihren Annotationen in ein Dataframe, das fortschrittliche Verarbeitungen vereinfacht, umzuwandeln. Jede Zeile im Dataframe entspricht einem Token in den Texten. Jede Spalte speichert eine Eigenschaft der Tokens wie \enquote{SentenceNr}, \enquote{Label} (nach der \enquote{BIO} Norm) etc. 
+	Der erste Schritt dieses Projekts ist, alle Texte mit ihren Annotationen in ein Dataframe, das fortschrittliche Verarbeitungen vereinfacht, umzuwandeln. Jede Zeile im Dataframe entspricht einem Token in den Texten. Jede Spalte speichert eine Eigenschaft der Tokens wie \enquote{SentenceNr} (Satznummer), \enquote{Label} (nach der \enquote{BIO}-Tagging-Norm) etc. 
 	
 	\indent
 	Ein kleines Problem bei der Umwandlung des Textes in das Dataframe ist, dass die Norm der Tokenisierung nicht vernachlässigt werden darf, besonders wenn die Satzzeichen eine Rolle zur semantischen Interpretation des Satzes spielen. Wenn z. B. ein Punkt am Ende eines Aussagesatzes steht, soll er als getrenntes Token behandelt werden. Im Gegensatz dazu, handelt es sich bei dem Punkt um Kennzeichen für eine Abkürzung, soll er mit den vorangehenden Buchstaben ein ganzes Token bilden. 
 	
 	\indent
-	Das Projekt hat für die Tokenisierung den \enquote{TreebankWordTokenizer} vom Paket \enquote{nltk} gewählt.\footnote{Link zum Dokument vom Tokenizer: https://www.nltk.org/api/nltk.tokenize.TreebankWordTokenizer.html} Die Qualität der Tokenisierung wird durch den Vergleich zwischen dem Goldstandard nach Annotation und den \enquote{detokenisierten} Texten, die Wiederzusammenstellung der Texte in den Entities nach der Tokenisierung, überprüft. Es wird also verglichen, ob die Texte der Entities (inkl. Satzzeichen) bei der Tokenisierung geändert werden. Nach der Überprüfung gibt es insgesamt nur 7 Entities im gesamten Trainings- und Developingsdatensatz, die wegen der Tokenisierung leicht geändert werden. Vier Änderungen behandeln die Löschung eines Bindestrichs. Durch diese geringe Menge von Fehlern sollte kein spürbarer Effekt bei der endgültigen Evaluation entstehen. Spezifische Reports über alle Tokenisierungsfehler können in \enquote{tokenizing\_report\_train(dev).txt} aus dem Projektsrepository gefunden werden.
+	Das Projekt hat für die Tokenisierung den \enquote{TreebankWordTokenizer} vom Paket \enquote{nltk} gewählt.\footnote{Link zum Dokument vom Tokenizer: Zitat aus: https://www.nltk.org/api/nltk.tokenize.TreebankWordTokenizer.html} Die Qualität der Tokenisierung wird durch den Vergleich zwischen dem Goldstandard nach Annotation und den \enquote{detokenisierten} Texten, die Wiederzusammenstellung der Texte in den Entities nach der Tokenisierung, überprüft. Es wird also verglichen, ob die Texte der Entities (inkl. Satzzeichen) bei der Tokenisierung geändert werden. Nach der Überprüfung gibt es insgesamt nur 7 Entities im gesamten Trainings- und Developingsdatensatz, die wegen der Tokenisierung leicht geändert werden. Vier Änderungen behandeln die Löschung eines Bindestrichs. Durch diese geringe Menge von Fehlern sollte kein spürbarer Effekt bei der endgültigen Evaluation entstehen. Spezifische Reports über alle Tokenisierungsfehler können in \enquote{tokenizing\_report\_train(dev).txt} aus dem Projektsrepository gefunden werden.
 
 	\subsection{Part-of-Speech-Tagging}
 	\noindent
@@ -267,13 +275,154 @@
 		\end{center}
 	\end{figure}
 
-	\subsection{Fehleranalyse}
+	\subsection{Fehleranalyse mit dem Beispiel der Präzedenzfälle}
+	\noindent
+	Eine Fehleranalyse, d. h. eine inhaltliche Überprüfung des Lernergebnisses, ist notwendig, um weitere Möglichkeit zur Verbesserung des Modells herauszufinden.  
 	
-	\subsubsection{versteckter Fehler: Personen in den Präzedenzfällen}
+	\indent
+	Durch einen Vergleich der Ergebnisse jeder Kategorien von den zwei Modellen kann man feststellen, dass das LinearSVC-Modell eine ähnliche Leistung bei den meisten Kategorien mit durchschnittlich kürzeren Längen (\enquote{COURT}, \enquote{DATE}, \enquote{GPE}, \enquote{STATUTE}) wie das crfsuite-Modell erreicht.\footnote{Ausschließlich den Kategorien in der Klasse \enquote{natural\_person}. Sie werden in \enquote{4.4.2 Beispiel II: natural\_person: eine unausgewogene Klasse} zusätzlich diskutiert.} Allerdings bei längeren Kategorien, wie \enquote{ORG}, \enquote{PRECEDENT}, \enquote{PROVISION}, hat das crfsuite-Modell ein eindeutig besseres Ergebnis bekommen. 
 	
-	\subsubsection{natural\_person: eine unausgewogene Klasse}
+	\indent
+	Bei der Kategorie \enquote{PRECEDENT} gibt es den größten Unterschied der Ergebnisse aus den beiden Modellen.\footnote{LinearSVC-Modell: f1-Score 85\% bei der Klassifizierung, strenger f1-Score 33\% ber der Recognition; crfsuite-Modell: entsprechend 98\% und 64\%.} Die häufigsten Einordnungs- oder Erkennungsfehler bei der \enquote{PRECEDENT} Klasse können mindestens in vier Typen zusammengefasst. 
 	
-	\section{Schlussbemerkung}
+	\medskip
+	\indent
+	Typ 1: Personennamen in den \enquote{PRECEDENT}
+	
+	\indent
+	Da die Präzedenzfälle in den juristischen Unterlagen häufig nach den beteiligten Personen des Verfahrens genannt werden, ist es eine Herausforderung für die Modelle, zwischen den Namen innerhalb eines \enquote{PRECEDENT} und Namen der natürlichen Personen als einzelne Entities zu unterscheiden. (Als Beispiel s. Tabelle 2: \enquote{OTHER\_PERSON} vs. \enquote{PRECEDENT})
+	
+\begin{table}
+	\begin{center}
+		\begin{tabular}{@{}| c | c c | @{}}
+			\toprule
+			Token & True& Pred   \\ \midrule
+			\hline
+			... & ... & ... \\ \midrule
+			Court & o & o \\   \midrule
+			in & o & o \\   \midrule
+			Vikram & B-PRECEDENT & B-OTHER\_PERSON  \\  \midrule
+			Singh &  I-PRECEDENT & I-OTHER\_PERSON  \\   \midrule
+			@ &  I-PRECEDENT& I-PRECEDENT \\   \midrule
+			Vicky & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			v. &  I-PRECEDENT & I-PRECEDENT \\   \midrule
+			Union & I-PRECEDENT  & I-PRECEDENT \\   \midrule
+			of & I-PRECEDENT  & I-PRECEDENT \\  \midrule
+			India16 & I-PRECEDENT  &  I-PRECEDENT  \\   \midrule
+			wherein & o & o \\   \midrule
+			it & o & o \\ \midrule
+			... & ... & ... \\ \bottomrule
+		\end{tabular}
+		\caption{ \enquote{OTHER\_PERSON} vs. \enquote{PRECEDENT} }
+	\end{center}
+\end{table}
+
+
+	\medskip
+	\indent
+	Typ 2: Namen der juristischen Personen in den \enquote{PRECEDENT}
+	
+	\indent
+	Das Modell hat häufig auch Namen der juristischen Personen in den Entities als einzelne Entities ausgefiltert. (Als Beispiel s. Tabelle 3: \enquote{GPE} vs. \enquote{PRECEDENT}) 
+	
+		\begin{table}
+	\begin{center}
+		\begin{tabular}{@{}| c | c c | @{}}
+			\toprule
+			Token & True& Pred   \\ \midrule
+			\hline
+			... & ... & ... \\ \midrule
+			case & o & o \\ \midrule
+			of & o & o \\ \midrule
+			Printpak & B-PRECEDENT & B-PRECEDENT \\   \midrule
+			Machinery & I-PRECEDENT & I-PRECEDENT \\   \midrule
+			v. & I-PRECEDENT & I-PRECEDENT  \\  \midrule
+			Jay &  I-PRECEDENT & I-PRECEDENT \\ \midrule
+			Kay &  I-PRECEDENT& I-PRECEDENT \\   \midrule
+			Paper & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			Congeners & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			reported & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			in & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			AIR & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			, & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			1979 & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			Delhi & I-PRECEDENT & B-GPE \\  \midrule
+			271 & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			has & o & o \\  \midrule
+			also & o & o  \\  \midrule
+			... & ... & ... \\  \bottomrule
+		\end{tabular}
+		\caption{ \enquote{GPE} vs. \enquote{PRECEDENT} }
+	\end{center}
+\end{table}	
+	
+	\medskip
+	\indent
+	Typ 3: \enquote{Keine Erkennung des \enquote{B-Labels}}
+	
+	\indent
+	Nach der \enquote{BIO}-Tagging-Norm muss das erste Token von der Entity mit dem \enquote{B-Label} gekennzeichnet werden, um die vorhergesagten Labels in eine Entity zu vereinigen. Weil jedes Token in den traditionellen Lernverfahren einzeln gelernt und vorhergesagt wird, gibt es keine Gewährleistung, dass jede vorhergesagte Entity mit einem \enquote{B-Label} beginnt. Manche Entities werden zwar in den (fast) genauen Längen erkannt und in die richtigen Kategorien eingeordnet, können sie allerdings noch nicht als eine richtige Recognition im strengen f1-Score zählen, wenn das erste Token nicht mit dem \enquote{B-Label} markiert wird oder ein beliebiges Token nach dem ersten Token ein \enquote{B-Label} bekommt. (Als Beispiel s. Tabelle 4: ohne \enquote{B-Label})
+	
+\begin{table}
+	\begin{center}
+		\begin{tabular}{@{}| c | c c | @{}}
+			\toprule
+			Token & True& Pred   \\ \midrule
+			\hline
+			... & ... & ... \\ \midrule
+			option & o & o \\ \midrule
+			but & o & o \\ \midrule
+			( & B-PRECEDENT & o \\   \midrule
+			2014 & I-PRECEDENT & I-PRECEDENT \\   \midrule
+			) & I-PRECEDENT & I-PRECEDENT  \\  \midrule
+			2 &  I-PRECEDENT & I-PRECEDENT \\ \midrule
+			SCC &  I-PRECEDENT& I-PRECEDENT \\   \midrule
+			1 & I-PRECEDENT & I-PRECEDENT \\  \midrule
+			to &  o & o \\   \midrule
+			... & ... & ... \\  \bottomrule
+		\end{tabular}
+		\caption{ohne \enquote{B-Label}}
+	\end{center}
+\end{table}	
+
+	\medskip
+	\indent
+	Typ 4: Komma zwischen zwei \enquote{PRECEDENT}
+	
+	\indent
+	Manchmal werden mehrere Präzedenzfälle mit einem Komma nebeneinander in den Urteilen zitiert. Solche Trennkommata lassen sich nicht einfach für die Modelle mit den Kommata innerhalb eines Präzedenzfalls unterscheiden. Die nebeneinander stehenden Präzedenzfällen werden deswegen nur als eine Entity erkannt. (Als Beispiel s. Tabelle 5: Komma zwischen zwei \enquote{PRECEDENT})
+
+	\begin{table}
+		\begin{center}
+			\begin{tabular}{@{}| c | c c | @{}}
+				\toprule
+				Token & True& Pred   \\ \midrule
+				\hline
+				... & ... & ... \\ \midrule
+				Ref. & o & o \\ \midrule
+				Murarilal & B-PRECEDENT & I-PRECEDENT \\   \midrule
+				v. & I-PRECEDENT & I-PRECEDENT \\   \midrule
+				State & I-PRECEDENT & I-PRECEDENT  \\  \midrule
+				of &  I-PRECEDENT & I-PRECEDENT \\ \midrule
+				M.P. &  I-PRECEDENT& I-PRECEDENT \\   \midrule
+				; & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				1980 & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				AIR & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				(  & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				SC & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				)  & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				531 & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				, & o & I-PRECEDENT \\  \midrule
+				Alamgir & B-PRECEDENT & I-PRECEDENT \\  \midrule
+				v. & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				State & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				(  & I-PRECEDENT & I-PRECEDENT \\  \midrule
+				... & ... & ... \\  \bottomrule
+			\end{tabular}
+			\caption{ Komma zwischen zwei \enquote{PRECEDENT} }
+		\end{center}
+	\end{table}	
+
 	\begin{figure}
 		\begin{center}
 			\includegraphics[width=15cm]{Illustrations/visualization.png}
@@ -284,12 +433,7 @@
 	
 	\clearpage
 	
-	\begin{thebibliography}{9}
-		\bibitem{texbook}
 		
-	\end{thebibliography}
-	
-	
 	\section*{Versicherung der selbstständigen Anfertigung}
 	Der Unterzeichnete versichert, dass er die vorliegende schriftliche Hausarbeit selbstständig verfasst und keine anderen als die von ihm angegebenen Hilfsmittel benutzt hat. Die Stellen der Arbeit, die anderen Werken dem Wortlaut oder dem Sinne nach entnommen sind, wurden in jedem Fall unter Angabe der Quellen (einschließlich des World Wide Web und anderer elektronischer Text- und Datensammlungen) kenntlich gemacht. Dies gilt auch für beigegebene Zeichnungen, bildliche Darstellungen, Skizzen und dergleichen. 
 	
