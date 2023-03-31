@@ -56,3 +56,7 @@ The sklearn_crfsuite model has reached a obviously better result as the svm.<br>
 <b>SVM:</b>Weighed average f1 score of strict recognition <b>67%</b> (level of <b>entity</b>) <br>
 <b>crfsuite:</b>Weighed average f1 score of strict recognition <b>75%</b> (level of <b>entity</b>) <br>
 Visualization uses the visualizer tools of SpaCy, to mark the entities from text in colors.<br>
+
+
+## 6. Project Report (in german language)
+with the total LaTeX document can be found in the file "Project_Report".
