@@ -1,7 +1,7 @@
 # LegalNER_GdCL_III_Project
 Coursework of the seminar Grundlagen der Computerlinguitik III at the University of Erlangen <br>
 Wintersemester 2022-2023 <br>
-Under the guidance of female professor <b>Stefanie Evert</b>, Lehrstuhl für Korpus- und Computerlinguistik<br>
+Under the guidance of female professor <b>Stephanie Evert</b>, Lehrstuhl für Korpus- und Computerlinguistik<br>
 The project is a shared task from the <i>SemEval-2023</i>, which dedicates to the recognition of entities in the legal documents. (Legal Named Entity Recognizer)<br>
 [Link to the shared task](https://sites.google.com/view/legaleval/home?pli=1)<br><br>
 
